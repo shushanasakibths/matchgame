@@ -1,0 +1,29 @@
+body {
+    background-color: black;
+}
+
+.logo {
+    color: white;
+    text-align: center;
+    font-family: fantasy;
+}
+#title {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+}
+
+.card-container {
+    display: grid;
+    padding: 20px;
+    grid-template-columns: auto auto auto auto;
+    row-gap: 10px;
+}
+
+.card {
+    background-color: #ed1d24;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
