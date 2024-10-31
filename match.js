@@ -1,0 +1,1 @@
+// NO js yet since I prefer working on the layout of css and html first to help my planning better
