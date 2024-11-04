@@ -2,6 +2,12 @@ body {
     background-color: black;
 }
 
+button {
+    background-color: brown;
+    border-radius: 10px;
+    font-family: fantasy;
+}
+
 .logo {
     color: white;
     text-align: center;
@@ -19,6 +25,7 @@ body {
     padding: 20px;
     grid-template-columns: auto auto auto auto;
     row-gap: 10px;
+    background-color: brown;
 }
 
 .card {
@@ -26,4 +33,11 @@ body {
     width: 200px;
     height: 200px;
     margin: 10px;
+    cursor: pointer;
+    box-shadow: 10px 5px 5px black;
+}
+
+.front {
+    width: 200px;
+    height: 200px;
 }
