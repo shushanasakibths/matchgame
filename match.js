@@ -1,26 +1,42 @@
-window.onload = loadCards
+window.onload = function() {
+    loadCards()
+    let cardSelectors = document.querySelectorAll(".card")
+    cardSelectors.forEach(
+        card => card.addEventListener("click", revealCard)
+    )
+}
 
 let scores = JSON.parse(localStorage.getItem("scores")) || []
 let clicks = 0
-var cards = new Array("cards/bonnie.png", "cards/chica.png", "cards/foxy.png", "cards/freddy.png", "cards/golden.png", "cards/matpat.png", "cards/scott.png", "springtrap.png")
+let firstCard = null
+let secondCard = null
+let lockBoard = false
+var cards = ["cards/bonnie.png", "cards/chica.png", "cards/foxy.png", "cards/freddy.png", "cards/golden.png", "cards/matpat.png", "cards/scott.png", "springtrap.png"]
 
 function reset() {
-    clicks = 0
-    document.getElementById("current-score").innerHTML = "Score: " + clicks
+    location.reload()
 }
 
 function shuffleCards() {
-
+    
 }
 
 function loadCards() {
+    shuffleCards()
     for (let i = 1; i <= 16; i++) {
-        let index = i.toString
-        document.getElementById(index).appendChild()
+        
     }
 }
 
-function revealCard() {
+function revealCard(event) {
+    
+}
+
+function check() {
+
+}
+
+function resetCards() {
     
 }
 
