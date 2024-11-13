@@ -1,5 +1,6 @@
 window.onload = function() {
     loadCards()
+    displayScores()
     let cardSelectors = document.querySelectorAll(".card") //https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
     cardSelectors.forEach(card => card.addEventListener("click", revealCard))
 }
@@ -9,6 +10,8 @@ let clicks = 0
 let firstCard = null
 let secondCard = null
 let lockBoard = false
+let matchedPairs = 0
+var totalPairs = 8
 var cards = ["cards/bonnie.png", "cards/chica.png", "cards/foxy.png", "cards/freddy.png", "cards/golden.png", "cards/matpat.png", "cards/scott.png", "cards/springtrap.png"]
 
 function reset() {
@@ -68,6 +71,11 @@ function check() {
         firstCard.removeEventListener("click", revealCard)
         secondCard.removeEventListener("click", revealCard)
         resetCards()
+        matchedPairs++
+        if (matchedPairs === totalPairs) {
+            endGame() 
+        }
+        resetCards()
     } else {
         setTimeout(() => {
             firstCard.querySelector(".front").style.display = "block"
@@ -92,7 +100,19 @@ function addScore() {
     document.getElementById("current-score").innerHTML = "Score: " + clicks
 }
 
-function maxScore() {
-    let maxScore = Math.max(parseInt(scores))
-    document.getElementById("highest-score").innerHTML = "Highest Score: " + maxScore
+function displayScores() {
+    if (scores.length > 0) {
+        let bestScore = Math.min(...scores)
+        document.getElementById("highest-score").innerHTML = "Highest Score: " + bestScore
+        document.getElementById("previous-scores").innerHTML = "Past Scores: " + scores.join(", ")
+    } else {
+        document.getElementById("highest-score").innerHTML = "Highest Score: "
+        document.getElementById("previous-scores").innerHTML = "Past Scores: "
+    }
+}
+
+function endGame() {
+    scores.push(clicks)
+    localStorage.setItem("scores", JSON.stringify(scores))
+    displayScores()
 }

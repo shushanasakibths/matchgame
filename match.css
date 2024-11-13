@@ -5,6 +5,8 @@ body {
 button {
     background-color: brown;
     border-radius: 10px;
+    width: 75px;
+    font-size: large;
     font-family: fantasy;
 }
 
